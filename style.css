@@ -1,0 +1,30 @@
+body {
+    background-color: #1a1a1a;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+h1 {
+    color: #ff4d4d;
+}
+h2 {
+    color: #ff4d4d;
+    font-size: x-large;
+}
+.imagem {
+    max-width: 400px;
+    max-height: 400px;
+    border-radius: 10px;
+    margin: 20px auto;
+}
+.contador, .mensagem {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
