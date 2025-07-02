@@ -1,17 +1,18 @@
-const imagens = [ // lista de imagens 
+/* const imagens = [ // lista de imagens 
     'img1.png',
     'img2.png',
     'img3.png'
-];
+]; */
 
 const mensagens = [ // lista de frases carinhosas
     'Eu te amo muito meu amor', 
     'Você é meu mundo',
     'Você é a pessoa que eu sempre quis',
+    'Eu te amo minha princesa',
     'Me sinto completo com você',
     'Sou o cara mais sortudo do mundo em ter você ao meu lado',
     'Você é meu tudo',
-    'Eu te amo minha princesa',
+    'Quantidade de vezes que vi a sua foto hoje = 129 vezes',
     'Eu te amo minha vida'
 ];
 
@@ -32,7 +33,6 @@ setInterval(() => {
 // Contadores de datas
 const dataNamoro = new Date("2024-08-10");
 const dataGravidez = new Date("2025-05-07");
-const hoje = new Date();
 const dataParto = new Date('2026-02-11');
 
 
@@ -46,9 +46,6 @@ function atualizarContadores() {
 
     document.getElementById("contadorNamoro").innerText =
         "Estamos namorando há " + diasNamoro + " dias 💑 Desde 10/08/2024";
-
-    /* document.getElementById("contadorGravidez").innerText =
-        "👶 " + diasGravidez + " dias desde que descobrimos a gravidez em 07/05/2025"; */
 
     document.getElementById("contadorGravidez").innerText =
         "👶 Grávida a " + diasGravidez + " dias (" + semanasGravidez + " semanas)  Desde 07/05/2025";
