@@ -6,15 +6,6 @@ body {
     padding: 20px;
 }
 
-h1 {
-    color: #ff4d4d;
-}
-
-h2 {
-    color: #ff4d4d;
-    font-size: x-large;
-}
-
 .imagem {
     max-width: 400px;
     max-height: 400px;
@@ -33,6 +24,10 @@ h2 {
     align-items: center;
     justify-content: center;
     gap: 8px;
+}
+
+.titulo h1,h2,h3 {
+    color: #ff4d4d;
 }
 
 /* Estilo da Timeline */
