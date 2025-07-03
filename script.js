@@ -10,11 +10,12 @@ const imagens = [ // lista de imagens
 const mensagens = [ // lista de frases carinhosas
     '❤️ Eu te amo muito meu amor ❤️', 
     '🥰Você é meu mundo 🥰',
-    '😘Você é a pessoa que eu sempre quis 😘',
+    'Você é a pessoa que eu sempre quis',
     '💍Eu te amo minha princesa 💍',
     '❤️ Me sinto completo com você ❤️',
-    'Sou o cara mais sortudo do mundo em ter você ao meu lado',
-    '🗺️ Você é meu tudo 🗺️',
+    'Sou o cara mais sortudo do mundo em ter você ao meu lado!',
+    'Você é meu tudo!',
+    'A mulher mais incrível que eu já conheci!',
     'Quantidade de vezes que vi a sua foto hoje = 129 vezes',
     '🥰 Eu te amo minha vida 🥰'
 ];
