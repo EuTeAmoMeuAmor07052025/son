@@ -1,19 +1,22 @@
-/* const imagens = [ // lista de imagens 
-    'img1.png',
-    'img2.png',
-    'img3.png'
-]; */
+const imagens = [ // lista de imagens 
+    'img1.jpg',
+    'img2.jpg',
+    'img3.jpg',
+    'img4.jpg',
+    'img5.jpg',
+    'img6.jpg'
+];
 
 const mensagens = [ // lista de frases carinhosas
-    'Eu te amo muito meu amor', 
-    'Você é meu mundo',
-    'Você é a pessoa que eu sempre quis',
-    'Eu te amo minha princesa',
-    'Me sinto completo com você',
+    '❤️ Eu te amo muito meu amor ❤️', 
+    '🥰Você é meu mundo 🥰',
+    '😘Você é a pessoa que eu sempre quis 😘',
+    '💍Eu te amo minha princesa 💍',
+    '❤️ Me sinto completo com você ❤️',
     'Sou o cara mais sortudo do mundo em ter você ao meu lado',
-    'Você é meu tudo',
+    '🗺️ Você é meu tudo 🗺️',
     'Quantidade de vezes que vi a sua foto hoje = 129 vezes',
-    'Eu te amo minha vida'
+    '🥰 Eu te amo minha vida 🥰'
 ];
 
 // Troca de imagem a cada 5 segundos
