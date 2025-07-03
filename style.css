@@ -5,26 +5,107 @@ body {
     text-align: center;
     padding: 20px;
 }
+
 h1 {
     color: #ff4d4d;
 }
+
 h2 {
     color: #ff4d4d;
     font-size: x-large;
 }
+
 .imagem {
     max-width: 400px;
     max-height: 400px;
     border-radius: 10px;
     margin: 20px auto;
 }
-.contador, .mensagem {
+
+.contador,
+.mensagem {
     font-size: 1.5em;
     margin: 20px 0;
 }
+
 .titulo {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+}
+
+/* Estilo da Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: #ff6b9e;
+    /* Cor do fio da timeline */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff1466;
+    /* Cor do marcador */
+    border-radius: 50%;
+    top: 15px;
+    z-index: 1;
+}
+
+.timeline-content {
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h3 {
+    margin-top: 0px;
+    color: #ff6b9e;
+}
+
+.timeline-content p {
+    color: black;
+    margin-bottom: 0;
+}
+
+.left {
+    left: 0;
+    text-align: right;
+}
+
+.right {
+    left: 50%;
+    text-align: left;
+}
+
+.left::after {
+    right: -10px;
+}
+
+.right::after {
+    left: -10px;
 }

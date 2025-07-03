@@ -60,3 +60,32 @@ function atualizarContadores() {
 
 atualizarContadores();
 setInterval(atualizarContadores, 86400000); // Atualiza a cada 24h
+
+/* Efeito de Rolagem Suave */
+document.addEventListener('DOMContentLoaded', function() {
+        const items = document.querySelectorAll('.timeline-item');
+        
+        function checkScroll() {
+            items.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                if (itemTop < window.innerHeight * 0.8) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }
+            });
+        }
+        
+        // Inicializa com alguns estilos
+        items.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transition = 'all 0.5s ease';
+            if (item.classList.contains('left')) {
+                item.style.transform = 'translateX(-30px)';
+            } else {
+                item.style.transform = 'translateX(30px)';
+            }
+        });
+        
+        window.addEventListener('scroll', checkScroll);
+        checkScroll(); // Verifica ao carregar
+    });
