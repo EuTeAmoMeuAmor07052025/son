@@ -94,14 +94,10 @@ h3 {
 }
 
 .timeline-content p:nth-of-type(2) {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    /* Fonte "fofinha" (como Comic Sans) */
-    font-weight: 300;
-    /* Peso leve */
-    color: #666;
-    /* Cor mais suave */
-    line-height: 1.4;
-    /* Espaçamento maior entre linhas */
+  font-family: 'Indie Flower', cursive; /* Ou 'Dancing Script' */
+  font-weight: 600;
+  color: #666;
+  line-height: 1.4;
 }
 
 .left {
