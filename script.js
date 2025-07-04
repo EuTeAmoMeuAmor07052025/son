@@ -19,9 +19,9 @@ const mensagens = [ // lista de frases carinhosas
     'Você é a pessoa que eu sempre quis',
     '💍Eu te amo minha princesa 💍',
     '❤️ Me sinto completo com você ❤️',
+    '🥰 Eu te amo minha vida 🥰',
     'Você é meu tudo! 👸🏾',
-    'A mulher mais incrível que eu já conheci!',
-    '🥰 Eu te amo minha vida 🥰'
+    'A mulher mais incrível que eu já conheci!'
 ];
 
 // Troca de imagem a cada 3 segundos
