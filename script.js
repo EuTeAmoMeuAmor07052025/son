@@ -19,26 +19,24 @@ const mensagens = [ // lista de frases carinhosas
     'Você é a pessoa que eu sempre quis',
     '💍Eu te amo minha princesa 💍',
     '❤️ Me sinto completo com você ❤️',
-    'Sou o cara mais sortudo do mundo em ter você ao meu lado!',
-    'Você é meu tudo!',
+    'Você é meu tudo! 👸🏾',
     'A mulher mais incrível que eu já conheci!',
-    'Quantidade de vezes que vi a sua foto hoje = 129 vezes',
     '🥰 Eu te amo minha vida 🥰'
 ];
 
-// Troca de imagem a cada 5 segundos
+// Troca de imagem a cada 3 segundos
 let indexImg = 0;
 setInterval(() => {
     indexImg = (indexImg + 1) % imagens.length;
     document.getElementById("foto").src = "images/" + imagens[indexImg];
-}, 5000);
+}, 3000);
 
-// Troca de mensagem a cada 4 segundos
+// Troca de mensagem a cada 3 segundos
 let indexMsg = 0;
 setInterval(() => {
     indexMsg = (indexMsg + 1) % mensagens.length;
     document.getElementById("mensagem").innerText = mensagens[indexMsg];
-}, 4000);
+}, 3000);
 
 // Contadores de datas
 const dataNamoro = new Date("2024-08-10");
