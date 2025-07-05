@@ -48,7 +48,6 @@ const MESSAGES = [
 const PREGNANCY_TIPS = [
     '💝 Descanse bastante e cuide de você',
     '💝 Beba muita água e se alimente bem',
-    '💝 Faça exercícios leves recomendados pelo médico',
     '💝 Evite estresse e mantenha a calma',
     '💝 Converse com nosso bebê todos os dias',
     '💝 Pense positivo e imagine nosso futuro juntos',
@@ -179,6 +178,12 @@ class LovePage {
 
     // ===== FUNCIONALIDADES ESPECIAIS PARA GESTANTES =====
     setupPregnancyFeatures() {
+        // Embaralha as dicas ao carregar
+        this.shuffledTips = [...PREGNANCY_TIPS];
+        for (let i = this.shuffledTips.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [this.shuffledTips[i], this.shuffledTips[j]] = [this.shuffledTips[j], this.shuffledTips[i]];
+        }
         this.currentTipIndex = 0;
         this.showPregnancyTip();
         setInterval(() => {
@@ -198,14 +203,14 @@ class LovePage {
         if (tipContainer) {
             tipContainer.style.opacity = '0.5';
             setTimeout(() => {
-                tipContainer.innerHTML = `<span style='font-size:1.3em;margin-right:0.3em;'>💕</span> ${PREGNANCY_TIPS[this.currentTipIndex]}`;
+                tipContainer.innerHTML = `<span style='font-size:1.3em;margin-right:0.3em;'>💕</span> ${this.shuffledTips[this.currentTipIndex]}`;
                 tipContainer.style.opacity = '1';
             }, 200);
         }
     }
 
     nextPregnancyTip() {
-        this.currentTipIndex = (this.currentTipIndex + 1) % PREGNANCY_TIPS.length;
+        this.currentTipIndex = (this.currentTipIndex + 1) % this.shuffledTips.length;
         this.showPregnancyTip();
     }
 
