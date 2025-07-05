@@ -3,15 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Página especial dedicada ao amor de Estela e Henrry">
-    <meta name="keywords" content="amor, casal, timeline, gravidez">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Página especial dedicada ao amor de Estela e Henrry - Uma história de amor e gravidez">
+    <meta name="keywords" content="amor, casal, timeline, gravidez, bebê, gestante">
     <meta name="author" content="Henrry">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#ff4d4d">
     
-    <title>Nosso Amor - Estela e Henrry</title>
+    <title>Nosso Amor - Estela e Henrry 💕</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -41,9 +48,29 @@
                 <div class="counter" id="contadorNascimento"></div>
             </section>
 
+            <!-- Pregnancy Special Section -->
+            <section class="pregnancy-section">
+                <h3 class="pregnancy-title">👶 Nossa Pequena Surpresa 👶</h3>
+                <div class="pregnancy-info">
+                    <p>Estamos esperando nosso bebê! 💕</p>
+                    <p>2 meses de gestação - Uma nova aventura começou!</p>
+                </div>
+                <div class="pregnancy-tips">
+                    <h4>💝 Dicas Especiais para Mamãe:</h4>
+                    <ul>
+                        <li>Descanse bastante e cuide de você</li>
+                        <li>Beba muita água e se alimente bem</li>
+                        <li>Faça exercícios leves recomendados pelo médico</li>
+                        <li>Evite estresse e mantenha a calma</li>
+                        <li>Converse com nosso bebê todos os dias</li>
+                        <li>Pense positivo e imagine nosso futuro juntos</li>
+                    </ul>
+                </div>
+            </section>
+
             <!-- Photo Gallery Section -->
             <section class="photo-section">
-                <img id="foto" class="photo" src="images/img1.jpg" alt="Foto do casal">
+                <img id="foto" class="photo" src="images/img1.jpg" alt="Foto do casal" loading="lazy">
                 <div class="message" id="mensagem">❤️ eu te amo 👸🏾</div>
             </section>
 
