@@ -185,29 +185,33 @@ body {
     padding: 1rem;
     border-radius: 15px;
     margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .pregnancy-tips h4 {
     color: var(--secondary-color);
     margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
 }
 
-.pregnancy-tips ul {
-    text-align: left;
+.pregnancy-tip {
     color: #333;
-    list-style: none;
-}
-
-.pregnancy-tips li {
+    font-size: 1.2rem;
+    text-align: center;
     margin: 0.5rem 0;
-    padding-left: 1.5rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 10px;
+    min-height: 2.2em;
+    display: inline-block;
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: opacity 0.3s;
     position: relative;
-}
-
-.pregnancy-tips li::before {
-    content: '💕';
-    position: absolute;
-    left: 0;
 }
 
 /* ===== GALERIA DE FOTOS ===== */

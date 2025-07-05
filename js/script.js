@@ -179,12 +179,12 @@ class LovePage {
 
     // ===== FUNCIONALIDADES ESPECIAIS PARA GESTANTES =====
     setupPregnancyFeatures() {
-        this.updatePregnancyTips();
+        this.currentTipIndex = 0;
+        this.showPregnancyTip();
         setInterval(() => {
-            this.updatePregnancyTips();
-        }, 10000); // Atualiza dicas a cada 10 segundos
+            this.nextPregnancyTip();
+        }, 10000);
 
-        // Adiciona efeito de "carinho" na seção de gravidez
         const pregnancySection = document.querySelector('.pregnancy-section');
         if (pregnancySection) {
             pregnancySection.addEventListener('touchstart', (e) => {
@@ -193,20 +193,20 @@ class LovePage {
         }
     }
 
-    updatePregnancyTips() {
-        this.currentTipIndex = (this.currentTipIndex + 1) % PREGNANCY_TIPS.length;
-        const tipsContainer = document.querySelector('.pregnancy-tips ul');
-        if (tipsContainer) {
-            const currentTip = PREGNANCY_TIPS[this.currentTipIndex];
-            const tipElement = tipsContainer.querySelector('li:first-child');
-            if (tipElement) {
-                tipElement.style.opacity = '0.5';
-                setTimeout(() => {
-                    tipElement.textContent = currentTip;
-                    tipElement.style.opacity = '1';
-                }, 200);
-            }
+    showPregnancyTip() {
+        const tipContainer = document.getElementById('pregnancy-tip');
+        if (tipContainer) {
+            tipContainer.style.opacity = '0.5';
+            setTimeout(() => {
+                tipContainer.innerHTML = `<span style='font-size:1.3em;margin-right:0.3em;'>💕</span> ${PREGNANCY_TIPS[this.currentTipIndex]}`;
+                tipContainer.style.opacity = '1';
+            }, 200);
         }
+    }
+
+    nextPregnancyTip() {
+        this.currentTipIndex = (this.currentTipIndex + 1) % PREGNANCY_TIPS.length;
+        this.showPregnancyTip();
     }
 
     addHeartEffect(x, y) {
