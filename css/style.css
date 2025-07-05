@@ -271,7 +271,8 @@ body {
 .message {
     font-size: clamp(1.3rem, 5vw, 1.5rem);
     margin: 20px 0;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    font-weight: 600;
     color: var(--secondary-color);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     animation: pulse 2s ease-in-out infinite;
