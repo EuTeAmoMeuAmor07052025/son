@@ -106,18 +106,24 @@ class LovePage {
 
     // ===== ROTAÇÃO DE MENSAGENS =====
     setupMessageRotation() {
-        setInterval(() => {
+        this.messageTimeout = null;
+        this.currentMessageIndex = 0;
+        this.showMessage();
+    }
+
+    showMessage() {
+        const messageElement = document.getElementById("mensagem");
+        if (messageElement) {
+            messageElement.style.opacity = '0.5';
+            setTimeout(() => {
+                messageElement.innerText = MESSAGES[this.currentMessageIndex];
+                messageElement.style.opacity = '1';
+            }, 300);
+        }
+        if (this.messageTimeout) clearTimeout(this.messageTimeout);
+        this.messageTimeout = setTimeout(() => {
             this.currentMessageIndex = (this.currentMessageIndex + 1) % MESSAGES.length;
-            const messageElement = document.getElementById("mensagem");
-            if (messageElement) {
-                messageElement.style.opacity = '0.5';
-                messageElement.style.transform = 'translateY(-10px)';
-                setTimeout(() => {
-                    messageElement.innerText = MESSAGES[this.currentMessageIndex];
-                    messageElement.style.opacity = '1';
-                    messageElement.style.transform = 'translateY(0)';
-                }, 300);
-            }
+            this.showMessage();
         }, CONFIG.MESSAGE_INTERVAL);
     }
 

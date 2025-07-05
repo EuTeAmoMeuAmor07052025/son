@@ -221,15 +221,42 @@ body {
     position: relative;
 }
 
-.photo {
-    max-width: min(400px, 90vw);
-    max-height: min(400px, 90vw);
+.photo-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 460px;
+    position: relative;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.photo-frame {
+    max-width: 400px;
+    height: auto;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto 0 auto;
     border-radius: 25px;
-    margin: 20px auto;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    background: transparent;
+}
+
+.photo {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 25px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
     position: relative;
+    display: block;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    margin: 0;
 }
 
 .photo:hover {
