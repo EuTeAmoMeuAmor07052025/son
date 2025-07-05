@@ -4,70 +4,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosso Amor</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Página especial dedicada ao amor de Estela e Henrry">
+    <meta name="keywords" content="amor, casal, timeline, gravidez">
+    <meta name="author" content="Henrry">
+    
+    <title>Nosso Amor - Estela e Henrry</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="titulo">
-        <h1>Nosso Amor 💖</h1>
-        <h1>Estela e Henrry</h1>
-    </div>
-    <div class="contador" id="contadorNamoro"></div>
-    <div class="contador" id="contadorGravidez"></div>
-    <div class="contador" id="contadorNascimento"></div>
-    <img id="foto" class="imagem" src="images/img1.jpg">
-    <div class="mensagem" id="mensagem">❤️ eu te amo 👸🏾</div>
-
-    <div class="titulo">
-        <h3>Linha do Tempo</h3>
-    </div>
-
-    <div class="timeline">
-
-        <div class="timeline-item left">
-            <div class="timeline-content">
-                <h3>Dia em que tudo começou ❤️</h3>
-                <p>13 de Fevereiro de 2024</p>
-                <p>Na porta da festa sentada na calçada conversando, lá estava ela</p>
-            </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="main-title">Nosso Amor 💖</h1>
+            <h2 class="subtitle">Estela e Henrry</h2>
         </div>
+    </header>
 
-        <div class="timeline-item right">
-            <div class="timeline-content">
-                <h3>Primeiro beijo 😘</h3>
-                <p>24 de Março de 2024</p>
-                <p>Enquanto dançavamos, nossos olhares se cruzaram e meu coração bateu mais forte!</p>
-            </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Counters Section -->
+            <section class="counters-section">
+                <div class="counter" id="contadorNamoro"></div>
+                <div class="counter" id="contadorGravidez"></div>
+                <div class="counter" id="contadorNascimento"></div>
+            </section>
+
+            <!-- Photo Gallery Section -->
+            <section class="photo-section">
+                <img id="foto" class="photo" src="images/img1.jpg" alt="Foto do casal">
+                <div class="message" id="mensagem">❤️ eu te amo 👸🏾</div>
+            </section>
+
+            <!-- Timeline Section -->
+            <section class="timeline-section">
+                <h3 class="section-title">Linha do Tempo</h3>
+                
+                <div class="timeline">
+                    <article class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>Dia em que tudo começou ❤️</h3>
+                            <time datetime="2024-02-13">13 de Fevereiro de 2024</time>
+                            <p>Na porta da festa sentada na calçada conversando, lá estava ela</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>Primeiro beijo 😘</h3>
+                            <time datetime="2024-03-24">24 de Março de 2024</time>
+                            <p>Enquanto dançavamos, nossos olhares se cruzaram e meu coração bateu mais forte!</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>Pedido de Namoro 💍</h3>
+                            <time datetime="2024-08-10">10 de Agosto de 2024</time>
+                            <p>Você disse "sim" e meu mundo ganhou cor!</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>Descoberta da Gravidez 👶</h3>
+                            <time datetime="2025-06-06">06 de Junho de 2025</time>
+                            <p>Ressignificou a minha vida por completo!</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>Nascimento do Nosso Bebê 🎉</h3>
+                            <time datetime="2026-02-01">Previsto: Fevereiro de 2026</time>
+                            <p>Mal podemos esperar para te conhecer, pequenino(a)!</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
         </div>
+    </main>
 
-        <div class="timeline-item left">
-            <div class="timeline-content">
-                <h3>Pedido de Namoro 💍</h3>
-                <p>10 de Agosto de 2024</p>
-                <p>Você disse "sim" e meu mundo ganhou cor!</p>
-            </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 - Feito com 🤍 por Henrry</p>
         </div>
+    </footer>
 
-        <div class="timeline-item right">
-            <div class="timeline-content">
-                <h3>Descoberta da Gravidez 👶</h3>
-                <p>06 de Junho de 2025</p>
-                <p>Ressignificou a minha vida por completo!</p>
-            </div>
-        </div>
-
-        <div class="timeline-item left">
-            <div class="timeline-content">
-                <h3>Nascimento do Nosso Bebê 🎉</h3>
-                <p>Previsto: Fevereiro de 2026</p>
-                <p>Mal podemos esperar para te conhecer, pequenino(a)!</p>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
 </body>
 
 </html>
