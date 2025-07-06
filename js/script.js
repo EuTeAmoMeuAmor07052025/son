@@ -151,7 +151,7 @@ class LovePage {
 
         // Atualização dos elementos
         this.updateCounterElement("contadorNamoro", 
-            `💑 Estamos namorando há ${diasNamoro} dias Desde 10/08/2024`);
+            `👩‍❤️‍👨 Estamos namorando há ${diasNamoro} dias Desde 10/08/2024`);
         
         this.updateCounterElement("contadorGravidez", 
             `👶 Grávida há ${diasGravidez} dias (${semanasGravidez} semanas e ${diasSemana} dias) Desde 07/05/2025`);
