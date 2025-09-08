@@ -81,12 +81,6 @@ A página é totalmente responsiva e funciona em:
 - Dias de gravidez desde 07/05/2025 (com semanas e dias)
 - Dias restantes para o nascimento (11/02/2026)
 
-### Seção Especial para Gestantes
-- Dicas personalizadas que mudam automaticamente
-- Contadores específicos de gravidez
-- Efeitos especiais ao tocar na seção
-- Mensagens motivacionais
-
 ### Timeline
 - Momentos especiais do relacionamento
 - Animações de scroll
