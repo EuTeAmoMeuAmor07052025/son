@@ -45,18 +45,6 @@ const MESSAGES = [
     '👨‍👩‍👧‍👦 Nossa história de amor continua... 👨‍👩‍👧‍👦'
 ];
 
-const PREGNANCY_TIPS = [
-    '💝 Descanse bastante e cuide de você',
-    '💝 Beba muita água e se alimente bem',
-    '💝 Evite estresse e mantenha a calma',
-    '💝 Converse com nosso bebê todos os dias',
-    '💝 Pense positivo e imagine nosso futuro juntos',
-    '💝 Cuide da sua postura e evite ficar muito tempo em pé',
-    '💝 Use roupas confortáveis e sapatos baixos',
-    '💝 Faça pequenas caminhadas diárias',
-    '💝 Mantenha uma rotina de sono saudável'
-];
-
 const DATES = {
     NAMORO: new Date("2024-08-10"),
     GRAVIDEZ: new Date("2025-05-07"),
@@ -180,44 +168,6 @@ class LovePage {
             element.style.transform = 'scale(1)';
             element.style.boxShadow = '0 5px 15px rgba(255, 77, 77, 0.2)';
         }, 300);
-    }
-
-    // ===== FUNCIONALIDADES ESPECIAIS PARA GESTANTES =====
-    setupPregnancyFeatures() {
-        // Embaralha as dicas ao carregar
-        this.shuffledTips = [...PREGNANCY_TIPS];
-        for (let i = this.shuffledTips.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [this.shuffledTips[i], this.shuffledTips[j]] = [this.shuffledTips[j], this.shuffledTips[i]];
-        }
-        this.currentTipIndex = 0;
-        this.showPregnancyTip();
-        setInterval(() => {
-            this.nextPregnancyTip();
-        }, 10000);
-
-        const pregnancySection = document.querySelector('.pregnancy-section');
-        if (pregnancySection) {
-            pregnancySection.addEventListener('touchstart', (e) => {
-                this.addHeartEffect(e.touches[0].clientX, e.touches[0].clientY);
-            });
-        }
-    }
-
-    showPregnancyTip() {
-        const tipContainer = document.getElementById('pregnancy-tip');
-        if (tipContainer) {
-            tipContainer.style.opacity = '0.5';
-            setTimeout(() => {
-                tipContainer.innerHTML = `<span style='font-size:1.3em;margin-right:0.3em;'>💕</span> ${this.shuffledTips[this.currentTipIndex]}`;
-                tipContainer.style.opacity = '1';
-            }, 200);
-        }
-    }
-
-    nextPregnancyTip() {
-        this.currentTipIndex = (this.currentTipIndex + 1) % this.shuffledTips.length;
-        this.showPregnancyTip();
     }
 
     addHeartEffect(x, y) {
