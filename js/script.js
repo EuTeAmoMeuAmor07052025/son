@@ -46,7 +46,7 @@ const MESSAGES = [
 ];
 
 const DATES = {
-    NAMORO: new Date("2024-08-10"),
+    CASAMENTO: new Date("2025-08-23"),
     GRAVIDEZ: new Date("2025-05-07"),
     PARTO: new Date('2026-02-11')
 };
@@ -126,8 +126,8 @@ class LovePage {
     updateCounters() {
         const hoje = new Date();
         
-        // Cálculo dos dias de namoro
-        const diasNamoro = this.calculateDaysDifference(hoje, DATES.NAMORO);
+        // Cálculo dos dias de casamento
+        const diasCasamento = this.calculateDaysDifference(hoje, DATES.CASAMENTO);
         
         // Cálculo dos dias de gravidez
         const diasGravidez = this.calculateDaysDifference(hoje, DATES.GRAVIDEZ);
@@ -138,8 +138,8 @@ class LovePage {
         const diasFaltantes = this.calculateDaysDifference(DATES.PARTO, hoje);
 
         // Atualização dos elementos
-        this.updateCounterElement("contadorNamoro", 
-            `👩‍❤️‍👨 Estamos namorando há ${diasNamoro} dias Desde 10/08/2024`);
+        this.updateCounterElement("contadorCasamento", 
+            `👩‍❤️‍👨 Estamos casados há ${diasCasamento} dias Desde 23/08/2025`);
         
         this.updateCounterElement("contadorGravidez", 
             `👶 Grávida há ${diasGravidez} dias (${semanasGravidez} semanas e ${diasSemana} dias) Desde 07/05/2025`);
