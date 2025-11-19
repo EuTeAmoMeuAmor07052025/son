@@ -139,13 +139,13 @@ class LovePage {
 
         // Atualização dos elementos
         this.updateCounterElement("contadorCasamento", 
-            `👩‍❤️‍👨 Estamos casados há ${diasCasamento} dias Desde 23/08/2025`);
+            `👩‍❤️‍👨 Estamos casados há ${diasCasamento} dias.<br>Desde 23/08/2025`);
         
         this.updateCounterElement("contadorGravidez", 
-            `👶 Grávida há ${diasGravidez} dias (${semanasGravidez} semanas e ${diasSemana} dias) Desde 07/05/2025`);
+            `👶 Grávida há ${diasGravidez} dias (${semanasGravidez} semanas e ${diasSemana} dias).<br>Desde 07/05/2025`);
         
         this.updateCounterElement("contadorNascimento", 
-            `🎉 Possível data de nascimento em 11/02/2026 faltam ${diasFaltantes} dias para nascer`);
+            `📅 Faltam ${diasFaltantes} dias para nascer.<br>Possível data de nascimento em 11/02/2026`);
     }
 
     calculateDaysDifference(date1, date2) {
@@ -156,7 +156,7 @@ class LovePage {
     updateCounterElement(elementId, text) {
         const element = document.getElementById(elementId);
         if (element) {
-            element.innerText = text;
+            element.innerHTML = text;
             this.addCounterAnimation(element);
         }
     }
