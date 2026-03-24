@@ -18,16 +18,16 @@ const CONFIG = {
 const IMAGES = [
     'img1.jpg',
     'img2.jpg',
-    'img3.jpg',
+    'img3.jpeg',
     'img4.jpg',
     'img5.jpg',
-    'img6.jpg',
+    'img6.jpeg',
     'img7.PNG',
     'img8.jpg',
     'img9.jpg',
     'img10.jpg',
     'img11.jpg',
-    'img12.png'
+    'img12.jpeg'
 ];
 
 const MESSAGES = [
@@ -45,10 +45,10 @@ const MESSAGES = [
     '👨‍👩‍👧‍👦 Nossa história de amor continua... 👨‍👩‍👧‍👦'
 ];
 
+// Datas
 const DATES = {
     CASAMENTO: new Date("2025-08-23"),
-    GRAVIDEZ: new Date("2025-05-07"),
-    PARTO: new Date('2026-02-11')
+    NASCIMENTO: new Date("2026-02-09")
 };
 
 // ===== CLASSE PRINCIPAL =====
@@ -128,24 +128,19 @@ class LovePage {
         
         // Cálculo dos dias de casamento
         const diasCasamento = this.calculateDaysDifference(hoje, DATES.CASAMENTO);
-        
-        // Cálculo dos dias de gravidez
-        const diasGravidez = this.calculateDaysDifference(hoje, DATES.GRAVIDEZ);
-        const semanasGravidez = Math.floor(diasGravidez / 7);
-        const diasSemana = diasGravidez % 7;
-        
-        // Cálculo dos dias para o parto
-        const diasFaltantes = this.calculateDaysDifference(DATES.PARTO, hoje);
+        const mesCasamento = this.calculateDaysDifference(hoje, DATES.CASAMENTO) / 30;
+
+        // Cálculo dos dias de nascimento
+        const diasNascimento = this.calculateDaysDifference(hoje, DATES.NASCIMENTO);
+        const mesesNascimento = Math.floor(diasNascimento / 30);
+        const diasSemana = diasNascimento % 30;
 
         // Atualização dos elementos
         this.updateCounterElement("contadorCasamento", 
-            `👩‍❤️‍👨 Estamos casados há ${diasCasamento} dias.<br>Desde 23/08/2025`);
-        
-        this.updateCounterElement("contadorGravidez", 
-            `👶 Grávida há ${diasGravidez} dias (${semanasGravidez} semanas e ${diasSemana} dias).<br>Desde 07/05/2025`);
+            `👩‍❤️‍👨 Estamos casados há ${diasCasamento} dias (${Math.floor(mesCasamento)} meses)<br>Desde 23/08/2025`);
         
         this.updateCounterElement("contadorNascimento", 
-            `📅 Faltam ${diasFaltantes} dias para nascer.<br>Possível data de nascimento em 11/02/2026`);
+            `👶 Samuel nasceu há ${diasNascimento} dias (${mesesNascimento} mes e ${diasSemana} dias)<br>Desde 09/02/2026`);
     }
 
     calculateDaysDifference(date1, date2) {
