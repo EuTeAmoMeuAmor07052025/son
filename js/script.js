@@ -137,7 +137,7 @@ class LovePage {
 
         // Atualização dos elementos
         this.updateCounterElement("contadorCasamento", 
-            `👩‍❤️‍👨 Estamos casados há ${diasCasamento} dias (${Math.floor(mesCasamento)} meses)<br>Desde 23/08/2025`);
+            `👩‍❤️‍👨 Casados há ${diasCasamento} dias (${Math.floor(mesCasamento)} meses)<br>Desde 23/08/2025`);
         
         this.updateCounterElement("contadorNascimento", 
             `👶 Samuel nasceu há ${diasNascimento} dias (${mesesNascimento} mes e ${diasSemana} dias)<br>Desde 09/02/2026`);
