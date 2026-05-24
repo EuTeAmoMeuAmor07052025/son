@@ -138,7 +138,7 @@ class LovePage {
 
         this.updateCounterElement(
             "contadorRelacionamento",
-            `Estamos Juntos há ${diasRelacionamento} dias (${this.formatYearsMonthsDays(tempoRelacionamento)})👩‍❤️‍👨<br>📅Desde 10/08/2024`
+            `Juntos há ${diasRelacionamento} dias (${this.formatYearsMonthsDays(tempoRelacionamento)})👩‍❤️‍👨<br>📅Desde 10/08/2024`
         );
         
         this.updateCounterElement(
