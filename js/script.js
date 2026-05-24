@@ -3,7 +3,7 @@
  * Autor: Henrry
  * Data: 2025
  * Versão: 2.0 - Especial para Gestantes
- */    
+ */
 
 // ===== CONFIGURAÇÕES =====
 const CONFIG = {
@@ -45,10 +45,11 @@ const MESSAGES = [
     '👨‍👩‍👧‍👦 Nossa história de amor continua... 👨‍👩‍👧‍👦'
 ];
 
-// Datas
+// Datas "0 = Janeiro ... 11 = Dezembro"
 const DATES = {
-    CASAMENTO: new Date("2025-08-23"),
-    NASCIMENTO: new Date("2026-02-09")
+    RELACIONAMENTO: new Date(2024, 7, 10),   // mês 7 = agosto
+    CASAMENTO: new Date(2025, 7, 23),   // mês 7 = agosto
+    NASCIMENTO: new Date(2026, 1, 9)    // mês 1 = fevereiro
 };
 
 // ===== CLASSE PRINCIPAL =====
@@ -125,33 +126,104 @@ class LovePage {
 
     updateCounters() {
         const hoje = new Date();
-        
-        // Cálculo dos dias de casamento
-        const diasCasamento = this.calculateDaysDifference(hoje, DATES.CASAMENTO);
-        const mesCasamento = this.calculateDaysDifference(hoje, DATES.CASAMENTO) / 30;
 
-        // Cálculo dos dias de nascimento
-        const diasNascimento = this.calculateDaysDifference(hoje, DATES.NASCIMENTO);
-        const mesesNascimento = Math.floor(diasNascimento / 30);
-        const diasSemana = diasNascimento % 30;
+        const diasRelacionamento = this.calculateDaysDifference(DATES.RELACIONAMENTO, hoje);
+        const tempoRelacionamento = this.calculateYearsMonthsAndDays(DATES.RELACIONAMENTO, hoje);
 
-        // Atualização dos elementos
-        this.updateCounterElement("contadorCasamento", 
-            `👩‍❤️‍👨 Casados há ${diasCasamento} dias (${Math.floor(mesCasamento)} meses)<br>Desde 23/08/2025`);
+        const diasCasamento = this.calculateDaysDifference(DATES.CASAMENTO, hoje);
+        const tempoCasamento = this.calculateYearsMonthsAndDays(DATES.CASAMENTO, hoje);
+
+        const diasNascimento = this.calculateDaysDifference(DATES.NASCIMENTO, hoje);
+        const tempoNascimento = this.calculateYearsMonthsAndDays(DATES.NASCIMENTO, hoje);
+
+        this.updateCounterElement(
+            "contadorRelacionamento",
+            `Estamos Juntos há ${diasRelacionamento} dias (${this.formatYearsMonthsDays(tempoRelacionamento)})👩‍❤️‍👨<br>📅Desde 10/08/2024`
+        );
         
-        this.updateCounterElement("contadorNascimento", 
-            `👶 Samuel nasceu há ${diasNascimento} dias (${mesesNascimento} mes e ${diasSemana} dias)<br>Desde 09/02/2026`);
+        this.updateCounterElement(
+            "contadorCasamento",
+            `Casados há ${diasCasamento} dias (${this.formatYearsMonthsDays(tempoCasamento)})💍<br>📅Desde 23/08/2025`
+        );
+
+        this.updateCounterElement(
+            "contadorNascimento",
+            `Samuel nasceu há ${diasNascimento} dias (${this.formatYearsMonthsDays(tempoNascimento)})👶<br>📅Desde 09/02/2026`
+        );
     }
 
-    calculateDaysDifference(date1, date2) {
-        const diffTime = Math.abs(date2 - date1);
+    calculateDaysDifference(startDate, endDate) {
+        const start = new Date(
+            startDate.getFullYear(),
+            startDate.getMonth(),
+            startDate.getDate()
+        );
+
+        const end = new Date(
+            endDate.getFullYear(),
+            endDate.getMonth(),
+            endDate.getDate()
+        );
+
+        const diffTime = end - start;
         return Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    }
+
+    calculateYearsMonthsAndDays(startDate, endDate) {
+        let years = endDate.getFullYear() - startDate.getFullYear();
+        let months = endDate.getMonth() - startDate.getMonth();
+        let days = endDate.getDate() - startDate.getDate();
+
+        if (days < 0) {
+            months--;
+
+            const lastMonth = new Date(
+                endDate.getFullYear(),
+                endDate.getMonth(),
+                0
+            );
+
+            days += lastMonth.getDate();
+        }
+
+        if (months < 0) {
+            years--;
+            months += 12;
+        }
+
+        return {
+            anos: years,
+            meses: months,
+            dias: days
+        };
+    }
+
+    formatYearsMonthsDays({ anos, meses, dias }) {
+        const parts = [];
+
+        if (anos > 0) {
+            parts.push(`${anos} ${anos === 1 ? "ano" : "anos"}`);
+        }
+
+        if (meses > 0) {
+            parts.push(`${meses} ${meses === 1 ? "mês" : "meses"}`);
+        }
+
+        if (dias > 0) {
+            parts.push(`${dias} ${dias === 1 ? "dia" : "dias"}`);
+        }
+
+        return parts.join(", ").replace(/, ([^,]*)$/, " e $1") || "0 dias";
     }
 
     updateCounterElement(elementId, text) {
         const element = document.getElementById(elementId);
-        if (element) {
-            element.innerHTML = text;
+
+        if (!element) return;
+
+        element.innerHTML = text;
+
+        if (typeof this.addCounterAnimation === "function") {
             this.addCounterAnimation(element);
         }
     }
@@ -175,14 +247,14 @@ class LovePage {
         heart.style.pointerEvents = 'none';
         heart.style.zIndex = '1000';
         heart.style.transition = 'all 1s ease';
-        
+
         document.body.appendChild(heart);
-        
+
         setTimeout(() => {
             heart.style.transform = 'translateY(-50px) scale(1.5)';
             heart.style.opacity = '0';
         }, 100);
-        
+
         setTimeout(() => {
             document.body.removeChild(heart);
         }, 1000);
@@ -192,18 +264,18 @@ class LovePage {
     setupTouchGestures() {
         let startY = 0;
         let startTime = 0;
-        
+
         document.addEventListener('touchstart', (e) => {
             startY = e.touches[0].clientY;
             startTime = Date.now();
         });
-        
+
         document.addEventListener('touchend', (e) => {
             const endY = e.changedTouches[0].clientY;
             const endTime = Date.now();
             const duration = endTime - startTime;
             const distance = Math.abs(endY - startY);
-            
+
             // Swipe rápido para cima = efeito especial
             if (distance > 50 && duration < 300 && endY < startY) {
                 this.triggerSpecialEffect();
@@ -220,7 +292,7 @@ class LovePage {
                 this.addHeartEffect(x, y);
             }, i * 100);
         }
-        
+
         // Mensagem especial
         const messageElement = document.getElementById("mensagem");
         if (messageElement) {
@@ -228,7 +300,7 @@ class LovePage {
             messageElement.innerText = "💕 Você é minha vida! 💕";
             messageElement.style.transform = 'scale(1.2)';
             messageElement.style.color = '#ff1466';
-            
+
             setTimeout(() => {
                 messageElement.innerText = originalText;
                 messageElement.style.transform = 'scale(1)';
@@ -251,7 +323,7 @@ class LovePage {
                     }
                 });
             });
-            
+
             images.forEach(img => imageObserver.observe(img));
         }
 
@@ -279,12 +351,12 @@ class LovePage {
     // ===== ANIMAÇÃO DA TIMELINE =====
     setupTimelineAnimation() {
         const timelineItems = document.querySelectorAll('.timeline-item');
-        
+
         // Configuração inicial dos itens
         timelineItems.forEach(item => {
             item.style.opacity = '0';
             item.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-            
+
             if (item.classList.contains('left')) {
                 item.style.transform = 'translateX(-30px)';
             } else {
@@ -297,7 +369,7 @@ class LovePage {
             timelineItems.forEach(item => {
                 const itemTop = item.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
-                
+
                 if (itemTop < windowHeight * CONFIG.SCROLL_THRESHOLD) {
                     item.style.opacity = '1';
                     item.style.transform = 'translateX(0)';
@@ -309,7 +381,7 @@ class LovePage {
         // Event listeners para scroll
         window.addEventListener('scroll', this.debounce(checkScroll, 10));
         window.addEventListener('resize', this.debounce(checkScroll, 10));
-        
+
         // Verificação inicial
         checkScroll();
     }
@@ -335,7 +407,7 @@ class LovePage {
             item.addEventListener('mouseenter', () => {
                 this.addTimelineHoverEffect(item);
             });
-            
+
             item.addEventListener('mouseleave', () => {
                 this.removeTimelineHoverEffect(item);
             });
@@ -347,7 +419,7 @@ class LovePage {
             photoElement.addEventListener('click', () => {
                 this.handlePhotoClick();
             });
-            
+
             // Adicionar efeito de toque para mobile
             photoElement.addEventListener('touchstart', () => {
                 this.handlePhotoTouch();
@@ -402,11 +474,11 @@ class LovePage {
 }
 
 // ===== INICIALIZAÇÃO =====
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     console.log('💖 Página de amor carregada com sucesso! 💖');
     console.log('👶 Versão especial para gestantes! 👶');
     new LovePage();
-    
+
     // Registro do Service Worker para PWA
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js')
@@ -420,16 +492,16 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===== FUNÇÕES GLOBAIS ADICIONAIS =====
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     // Adicionar classe de carregamento completo
     document.body.classList.add('loaded');
-    
+
     // Efeito de fade-in para o conteúdo
     const mainContent = document.querySelector('.main-content');
     if (mainContent) {
         mainContent.style.opacity = '0';
         mainContent.style.transform = 'translateY(20px)';
-        
+
         setTimeout(() => {
             mainContent.style.transition = 'all 0.8s ease';
             mainContent.style.opacity = '1';
@@ -456,7 +528,7 @@ window.addEventListener('load', function() {
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             animation: welcomeFade 3s ease-in-out forwards;
         `;
-        
+
         const style = document.createElement('style');
         style.textContent = `
             @keyframes welcomeFade {
@@ -466,10 +538,10 @@ window.addEventListener('load', function() {
                 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
             }
         `;
-        
+
         document.head.appendChild(style);
         document.body.appendChild(welcomeMessage);
-        
+
         setTimeout(() => {
             document.body.removeChild(welcomeMessage);
         }, 3000);
