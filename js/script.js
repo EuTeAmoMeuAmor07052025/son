@@ -138,17 +138,17 @@ class LovePage {
 
         this.updateCounterElement(
             "contadorRelacionamento",
-            `Juntos há ${diasRelacionamento} dias (${this.formatYearsMonthsDays(tempoRelacionamento)})👩‍❤️‍👨<br>📅Desde 10/08/2024`
+            `Juntos há ${diasRelacionamento} dias <br>(${this.formatYearsMonthsDays(tempoRelacionamento)})👩‍❤️‍👨<br>📅Desde 10/08/2024`
         );
         
         this.updateCounterElement(
             "contadorCasamento",
-            `Casados há ${diasCasamento} dias (${this.formatYearsMonthsDays(tempoCasamento)})💍<br>📅Desde 23/08/2025`
+            `Casados há ${diasCasamento} dias <br>(${this.formatYearsMonthsDays(tempoCasamento)})💍<br>📅Desde 23/08/2025`
         );
 
         this.updateCounterElement(
             "contadorNascimento",
-            `Samuel nasceu há ${diasNascimento} dias (${this.formatYearsMonthsDays(tempoNascimento)})👶<br>📅Desde 09/02/2026`
+            `Samuel nasceu há ${diasNascimento} dias <br>(${this.formatYearsMonthsDays(tempoNascimento)})👶<br>📅Desde 09/02/2026`
         );
     }
 
